@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Paint - Cursus Consequat Tristique</title>
+    <!-- 引入 Google Fonts 的 Poppins 字體 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -11,44 +12,50 @@
       rel="stylesheet"
     />
     <style>
+      /* CSS 變數定義，用於統一顏色、圓角等樣式 */
       :root {
-        --color-primary: #ffc107;
-        --color-dark: #212529;
-        --color-light: #ffffff;
-        --color-bg: #fffaf0;
-        --color-text: #343a40;
-        --border-radius: 20px;
+        --color-primary: #ffc107; /* 主色調：黃色 */
+        --color-dark: #212529; /* 深色調：深灰 */
+        --color-light: #ffffff; /* 淺色調：白色 */
+        --color-bg: #fffaf0; /* 背景色：淺黃色 */
+        --color-text: #343a40; /* 文字顏色：深灰色 */
+        --border-radius: 20px; /* 圓角半徑 */
       }
 
+      /* 全局樣式重置 */
       * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+        box-sizing: border-box; /* 盒模型設置為邊框盒 */
+        margin: 0; /* 移除外邊距 */
+        padding: 0; /* 移除內邊距 */
       }
 
+      /* body 樣式 */
       body {
-        font-family: "Poppins", sans-serif;
-        background-color: var(--color-bg);
-        color: var(--color-text);
-        font-size: 16px;
-        line-height: 1.6;
+        font-family: "Poppins", sans-serif; /* 字體設置 */
+        background-color: var(--color-bg); /* 背景色 */
+        color: var(--color-text); /* 文字顏色 */
+        font-size: 16px; /* 基礎字體大小 */
+        line-height: 1.6; /* 行高 */
       }
 
+      /* 容器樣式，用於限制內容最大寬度並居中 */
       .container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 20px;
       }
 
+      /* 頁眉樣式 */
       header {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        justify-content: space-between; /* 內容兩端對齊 */
+        align-items: center; /* 垂直居中 */
         padding: 30px 0;
       }
+      /* 頁眉在小螢幕下的響應式調整 */
       @media (max-width: 768px) {
         header {
-          flex-direction: row;
+          flex-direction: row; /* 保持水平排列 */
           padding: 20px 0;
           justify-content: space-between;
         }
@@ -57,6 +64,7 @@
         }
       }
 
+      /* Logo 樣式 */
       .logo {
         font-weight: 700;
         font-size: 24px;
@@ -70,6 +78,7 @@
         margin-right: 5px;
       }
 
+      /* 語言選擇器樣式 */
       .lang-selector {
         display: flex;
         align-items: center;
@@ -81,24 +90,27 @@
         margin-right: 8px;
       }
 
+      /* 按鈕基礎樣式 */
       .btn {
         display: inline-block;
         padding: 12px 30px;
         border-radius: 50px;
         text-decoration: none;
         font-weight: 600;
-        transition: all 0.3s ease;
+        transition: all 0.3s ease; /* 過渡效果 */
       }
 
+      /* 主按鈕樣式 */
       .btn-primary {
         background-color: var(--color-primary);
         color: var(--color-dark);
       }
       .btn-primary:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-3px); /* 鼠標懸停時上移 */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 陰影效果 */
       }
 
+      /* 深色按鈕樣式 */
       .btn-dark {
         background-color: var(--color-dark);
         color: var(--color-light);
@@ -107,15 +119,18 @@
         background-color: #343a40;
       }
 
+      /* 淺色按鈕樣式 */
       .btn-light {
         background-color: var(--color-light);
         color: var(--color-dark);
       }
 
+      /* 區塊基礎樣式 */
       .section {
         padding: 80px 0;
       }
 
+      /* Hero 區塊樣式 (主視覺區塊) */
       .hero {
         text-align: center;
         padding-bottom: 100px;
@@ -134,11 +149,12 @@
         color: var(--color-dark);
       }
 
+      /* Hero 區塊的特色項目列表 */
       .hero-features {
         display: flex;
         justify-content: center;
-        flex-wrap: wrap;
-        gap: 15px;
+        flex-wrap: wrap; /* 允許換行 */
+        gap: 15px; /* 項目間距 */
         margin-bottom: 40px;
       }
 
@@ -151,11 +167,12 @@
         align-items: center;
       }
       .feature-item::before {
-        content: "+";
+        content: "+"; /* 在項目前添加 "+" 符號 */
         color: var(--color-primary);
         margin-right: 10px;
       }
 
+      /* 分割區塊樣式 (左右兩欄佈局) */
       .split-section {
         display: flex;
         align-items: center;
@@ -164,9 +181,10 @@
 
       .split-section .content,
       .split-section .visual {
-        flex: 1;
+        flex: 1; /* 讓內容和視覺區塊佔據等寬空間 */
       }
 
+      /* 黃色背景區塊樣式 */
       .section-yellow {
         background-color: var(--color-primary);
         border-radius: var(--border-radius);
@@ -185,9 +203,10 @@
         border-radius: var(--border-radius);
       }
 
+      /* 桌面端響應式調整：深色區塊和黃色區塊的左右佈局反轉 */
       @media (min-width: 993px) {
         .section-dark .split-section {
-          flex-direction: row-reverse;
+          flex-direction: row-reverse; /* 左右反轉 */
         }
         .section-yellow.split-section {
             flex-direction: row-reverse;
@@ -197,9 +216,10 @@
         }
       }
 
+      /* 深色背景區塊樣式 */
       .section-dark {
         background-color: var(--color-dark);
-        color: var(--color-dark);
+        color: var(--color-dark); /* 這裡可能是一個錯誤，應該是 var(--color-light) */
         border-radius: var(--border-radius);
         padding: 80px;
       }
@@ -213,17 +233,20 @@
       }
       
 
+      /* 灰色背景區塊樣式 */
       .section-grey {
         background-color: #212529;
         border-radius: var(--border-radius);
         padding: 80px;
       }
 
+      /* 4 欄網格佈局 (實際為 2x2 佈局) */
       .grid-4 {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* 兩列等寬 */
         gap: 25px;
       }
+      /* 網格卡片基礎樣式 */
       .grid-card {
         padding: 25px;
         border-radius: var(--border-radius);
@@ -258,6 +281,7 @@
         margin-bottom: 15px;
       }
 
+      /* 客戶評價區塊樣式 */
       .testimonial {
         text-align: center;
         max-width: 700px;
@@ -266,7 +290,7 @@
       .testimonial img {
         width: 120px;
         height: 120px;
-        border-radius: 50%;
+        border-radius: 50%; /* 圓形圖片 */
         object-fit: cover;
         margin-bottom: 30px;
       }
@@ -297,6 +321,7 @@
         color: var(--color-primary);
       }
 
+      /* 常見問題 (FAQ) 區塊樣式 */
       .faq-section {
         max-width: 800px;
         margin: 0 auto;
@@ -309,6 +334,7 @@
         text-align: center;
         margin-bottom: 50px;
       }
+      /* 手風琴 (Accordion) 項目樣式 */
       .accordion-item {
         background-color: var(--color-light);
         margin-bottom: 15px;
@@ -325,16 +351,17 @@
         font-size: 18px;
       }
       .accordion-content {
-        max-height: 0;
+        max-height: 0; /* 默認隱藏內容 */
         overflow: hidden;
-        transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        transition: max-height 0.3s ease-out, padding 0.3s ease-out; /* 過渡效果 */
       }
       .accordion-content p {
         padding: 0 25px 20px;
         color: #555;
       }
+      /* 當手風琴項目激活時顯示內容 */
       .accordion-item.active .accordion-content {
-        max-height: 200px; /* Adjust as needed */
+        max-height: 200px; /* 根據內容調整高度 */
       }
       .accordion-icon {
         font-size: 24px;
@@ -342,6 +369,7 @@
         color: var(--color-primary);
       }
 
+      /* 最終行動呼籲 (Call to Action) 區塊樣式 */
       .final-cta {
         background-color: var(--color-dark);
         color: var(--color-light);
@@ -356,6 +384,7 @@
         max-width: 500px;
       }
 
+      /* 頁腳樣式 */
       footer {
         padding: 30px 0;
         text-align: center;
@@ -377,16 +406,17 @@
         color: var(--color-primary);
       }
 
+      /* 媒體查詢：平板和桌面小螢幕 */
       @media (max-width: 992px) {
         .split-section {
-          flex-direction: column;
+          flex-direction: column; /* 垂直堆疊 */
           text-align: center;
         }
         .section-dark {
           padding: 40px;
         }
         .grid-4 {
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: 1fr 1fr; /* 兩列佈局 */
         }
         .final-cta {
           flex-direction: column;
@@ -394,6 +424,7 @@
           gap: 30px;
         }
       }
+      /* 媒體查詢：手機螢幕 */
       @media (max-width: 768px) {
         h1 {
           font-size: 40px !important;
@@ -442,7 +473,7 @@
           flex-direction: column;
         }
         .grid-4 {
-          grid-template-columns: 1fr;
+          grid-template-columns: 1fr; /* 單列佈局 */
         }
         .testimonial h2 {
           font-size: 28px;
@@ -467,6 +498,7 @@
           gap: 10px;
         }
       }
+      /* 媒體查詢：更小的手機螢幕 */
       @media (max-width: 480px) {
         .container {
           padding: 20px 15px;
@@ -515,6 +547,7 @@
     </style>
   </head>
   <body>
+    <!-- 頁面頭部區域 -->
     <header class="container">
       <div class="logo"><span></span>PAINT</div>
       <div class="lang-selector">
@@ -526,7 +559,9 @@
       </div>
     </header>
 
+    <!-- 主要內容區域 -->
     <main>
+      <!-- Hero 區塊：主視覺和標題 -->
       <section class="hero container">
         <p class="subtitle">RISUS PRAESENT VULPUTATE.</p>
         <h1>Cursus Consequat Tristique.</h1>
@@ -540,6 +575,7 @@
         <a href="#" class="btn btn-primary">Lorem Ipsum &rarr;</a>
       </section>
 
+      <!-- 黃色背景的分割區塊 -->
       <section class="container">
         <div class="section-yellow split-section">
           <div class="visual">
@@ -563,6 +599,7 @@
         </div>
       </section>
 
+      <!-- 深色背景的分割區塊，包含網格卡片 -->
       <section class="section container">
         <div class="section-dark">
           <div class="split-section">
@@ -610,8 +647,9 @@
         </div>
       </section>
 
+      <!-- 客戶評價區塊 -->
       <section class="section container testimonial">
-        <!-- Placeholder for image -->
+        <!-- 客戶圖片佔位符 -->
         <img
           src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
           alt="Customer photo"
@@ -628,6 +666,7 @@
         </div>
       </section>
 
+      <!-- 另一個分割區塊，包含特色項目 -->
       <section class="container">
         <div class="split-section">
           <div class="visual" style="background: none; height: auto">
@@ -659,6 +698,7 @@
         </div>
       </section>
 
+      <!-- 常見問題 (FAQ) 區塊，包含手風琴效果 -->
       <section class="section faq-section">
         <h2>Phasellus a vitae iaculis magna.</h2>
         <p class="subtitle">
@@ -714,6 +754,7 @@
         </div>
       </section>
 
+      <!-- 最終行動呼籲區塊 -->
       <section class="container">
         <div class="final-cta">
           <h2>Vulputate et pulvinar ethre Suspendisse tellus consecteur</h2>
@@ -722,6 +763,7 @@
       </section>
     </main>
 
+    <!-- 頁腳區域 -->
     <footer class="container">
       <div class="footer-links">
         <div>Copyright &copy; 2022 Lorem Ipsum.</div>
@@ -731,43 +773,50 @@
       </div>
     </footer>
 
+    <!-- JavaScript 腳本 -->
     <script>
+      // 當 DOM 內容加載完成後執行
       document.addEventListener("DOMContentLoaded", function () {
+        // 獲取所有手風琴項目
         const accordionItems = document.querySelectorAll(".accordion-item");
 
-        // Open the first item by default
+        // 默認打開第一個手風琴項目
         if (accordionItems.length > 0) {
           const firstItem = accordionItems[0];
-          firstItem.classList.add("active");
+          firstItem.classList.add("active"); // 添加 active 類別
+          // 設置內容的最大高度以顯示內容
           firstItem.querySelector(".accordion-content").style.maxHeight =
             firstItem.querySelector(".accordion-content").scrollHeight + "px";
         }
 
+        // 為每個手風琴項目添加點擊事件監聽器
         accordionItems.forEach((item) => {
-          const header = item.querySelector(".accordion-header");
-          const content = item.querySelector(".accordion-content");
-          const icon = header.querySelector(".accordion-icon");
+          const header = item.querySelector(".accordion-header"); // 標題
+          const content = item.querySelector(".accordion-content"); // 內容
+          const icon = header.querySelector(".accordion-icon"); // 圖標 (+/-)
 
           header.addEventListener("click", () => {
-            // Close other items
+            // 關閉其他已打開的手風琴項目
             accordionItems.forEach((otherItem) => {
               if (
-                otherItem !== item &&
-                otherItem.classList.contains("active")
+                otherItem !== item && // 不是當前點擊的項目
+                otherItem.classList.contains("active") // 且處於打開狀態
               ) {
-                otherItem.classList.remove("active");
+                otherItem.classList.remove("active"); // 移除 active 類別
                 otherItem.querySelector(".accordion-content").style.maxHeight =
-                  "0";
-                otherItem.querySelector(".accordion-icon").textContent = "+";
+                  "0"; // 隱藏內容
+                otherItem.querySelector(".accordion-icon").textContent = "+"; // 設置圖標為 "+"
               }
             });
 
-            // Toggle current item
+            // 切換當前手風琴項目的打開/關閉狀態
             item.classList.toggle("active");
             if (item.classList.contains("active")) {
+              // 如果是打開狀態，顯示內容並設置圖標為 "-"
               content.style.maxHeight = content.scrollHeight + "px";
               icon.textContent = "-";
             } else {
+              // 如果是關閉狀態，隱藏內容並設置圖標為 "+"
               content.style.maxHeight = "0";
               icon.textContent = "+";
             }
