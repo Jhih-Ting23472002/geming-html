@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paint - Cursus Consequat Tristique</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --color-primary: #ffc107;
+        --color-dark: #212529;
+        --color-light: #ffffff;
+        --color-bg: #fffaf0;
+        --color-text: #343a40;
+        --border-radius: 20px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 0;
+      }
+      @media (max-width: 768px) {
+        header {
+          flex-direction: row;
+          padding: 20px 0;
+          justify-content: space-between;
+        }
+        .lang-selector {
+          margin-top: 0;
+        }
+      }
+
+      .logo {
+        font-weight: 700;
+        font-size: 24px;
+        color: var(--color-primary);
+      }
+      .logo span {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        background-color: var(--color-primary);
+        margin-right: 5px;
+      }
+
+      .lang-selector {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+      }
+
+      .lang-selector img {
+        width: 24px;
+        margin-right: 8px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary {
+        background-color: var(--color-primary);
+        color: var(--color-dark);
+      }
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-dark {
+        background-color: var(--color-dark);
+        color: var(--color-light);
+      }
+      .btn-dark:hover {
+        background-color: #343a40;
+      }
+
+      .btn-light {
+        background-color: var(--color-light);
+        color: var(--color-dark);
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .hero {
+        text-align: center;
+        padding-bottom: 100px;
+      }
+
+      .hero .subtitle {
+        color: var(--color-primary);
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
+
+      .hero h1 {
+        font-size: 52px;
+        font-weight: 700;
+        margin: 10px 0 30px;
+        color: var(--color-dark);
+      }
+
+      .hero-features {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 40px;
+      }
+
+      .feature-item {
+        background-color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+      }
+      .feature-item::before {
+        content: "+";
+        color: var(--color-primary);
+        margin-right: 10px;
+      }
+
+      .split-section {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+      }
+
+      .split-section .content,
+      .split-section .visual {
+        flex: 1;
+      }
+
+      .section-yellow {
+        background-color: var(--color-primary);
+        border-radius: var(--border-radius);
+        padding: 60px;
+      }
+      .section-yellow h2 {
+        font-size: 42px;
+        color: var(--color-dark);
+      }
+      .section-yellow p {
+        color: #5c4d1a;
+        margin: 20px 0 30px;
+      }
+      .section-yellow .visual {
+        background-color: #fff8e1;
+        border-radius: var(--border-radius);
+      }
+
+      @media (min-width: 993px) {
+        .section-dark .split-section {
+          flex-direction: row-reverse;
+        }
+        .section-yellow.split-section {
+            flex-direction: row-reverse;
+        }
+        .split-section.reverse-on-desktop {
+            flex-direction: row-reverse;
+        }
+      }
+
+      .section-dark {
+        background-color: var(--color-dark);
+        color: var(--color-dark);
+        border-radius: var(--border-radius);
+        padding: 80px;
+      }
+      .section-dark h2 {
+        font-size: 42px;
+        color: var(--color-light);
+      }
+      .section-dark .subtitle {
+        color: var(--color-primary);
+        margin-bottom: 20px;
+      }
+      
+
+      .section-grey {
+        background-color: #212529;
+        border-radius: var(--border-radius);
+        padding: 80px;
+      }
+
+      .grid-4 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+      }
+      .grid-card {
+        padding: 25px;
+        border-radius: var(--border-radius);
+      }
+      .grid-card.light {
+        background-color: var(--color-light);
+        color: var(--color-dark);
+      }
+      .grid-card.primary {
+        background-color: var(--color-primary);
+        color: var(--color-dark);
+      }
+      .grid-card .card-num {
+        font-size: 40px;
+        font-weight: 700;
+      }
+      .grid-card .card-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 10px 0 5px;
+      }
+      .grid-card .card-desc {
+        font-size: 14px;
+        opacity: 0.8;
+      }
+      .grid-card .card-icon {
+        font-size: 12px;
+        background: rgba(0, 0, 0, 0.1);
+        padding: 5px 10px;
+        border-radius: 20px;
+        display: inline-block;
+        margin-bottom: 15px;
+      }
+
+      .testimonial {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+      .testimonial img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 30px;
+      }
+      .testimonial h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+      .testimonial p {
+        font-size: 18px;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        color: #555;
+      }
+      .testimonial .author {
+        font-weight: 700;
+        font-size: 16px;
+      }
+      .testimonial-nav {
+        margin-top: 30px;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .testimonial-nav span {
+        margin: 0 10px;
+      }
+      .testimonial-nav .next {
+        color: var(--color-primary);
+      }
+
+      .faq-section {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .faq-section h2 {
+        text-align: center;
+        font-size: 42px;
+      }
+      .faq-section .subtitle {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      .accordion-item {
+        background-color: var(--color-light);
+        margin-bottom: 15px;
+        border-radius: var(--border-radius);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+      .accordion-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 25px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 18px;
+      }
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+      }
+      .accordion-content p {
+        padding: 0 25px 20px;
+        color: #555;
+      }
+      .accordion-item.active .accordion-content {
+        max-height: 200px; /* Adjust as needed */
+      }
+      .accordion-icon {
+        font-size: 24px;
+        font-weight: 500;
+        color: var(--color-primary);
+      }
+
+      .final-cta {
+        background-color: var(--color-dark);
+        color: var(--color-light);
+        border-radius: var(--border-radius);
+        padding: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .final-cta h2 {
+        font-size: 36px;
+        max-width: 500px;
+      }
+
+      footer {
+        padding: 30px 0;
+        text-align: center;
+      }
+      .footer-links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 20px;
+        border-top: 1px solid #e0e0e0;
+        margin-top: 20px;
+      }
+      .footer-links a {
+        color: var(--color-text);
+        text-decoration: none;
+        margin: 0 10px;
+      }
+      .footer-links a:hover {
+        color: var(--color-primary);
+      }
+
+      @media (max-width: 992px) {
+        .split-section {
+          flex-direction: column;
+          text-align: center;
+        }
+        .section-dark {
+          padding: 40px;
+        }
+        .grid-4 {
+          grid-template-columns: 1fr 1fr;
+        }
+        .final-cta {
+          flex-direction: column;
+          text-align: center;
+          gap: 30px;
+        }
+      }
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 40px !important;
+        }
+        h2 {
+          font-size: 32px !important;
+        }
+        header {
+          flex-direction: row;
+          padding: 20px 0;
+          justify-content: space-between;
+        }
+        .lang-selector {
+          margin-top: 0;
+        }
+        .hero {
+          padding-bottom: 60px;
+        }
+        .hero-features {
+          flex-direction: column;
+          align-items: center;
+        }
+        .hero-features .feature-item {
+          max-width: 300px;
+          margin: 0 auto;
+        }
+        .hero .btn {
+          width: 90%;
+          padding: 15px 30px;
+        }
+        .split-section {
+          flex-direction: column;
+          text-align: center;
+        }
+        .section-yellow {
+          padding: 40px;
+        }
+        .section-yellow .visual {
+          height: 200px;
+          margin-top: 30px;
+        }
+        .section-dark {
+          padding: 40px;
+        }
+        .section-dark .split-section {
+          flex-direction: column;
+        }
+        .grid-4 {
+          grid-template-columns: 1fr;
+        }
+        .testimonial h2 {
+          font-size: 28px;
+        }
+        .testimonial p {
+          font-size: 16px;
+        }
+        .faq-section h2 {
+          font-size: 32px;
+        }
+        .final-cta {
+          flex-direction: column;
+          text-align: center;
+          gap: 30px;
+          padding: 40px;
+        }
+        .final-cta h2 {
+          font-size: 28px;
+        }
+        .footer-links {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+      @media (max-width: 480px) {
+        .container {
+          padding: 20px 15px;
+        }
+        .logo {
+          font-size: 20px;
+        }
+        .hero h1 {
+          font-size: 32px !important;
+        }
+        .section {
+          padding: 50px 0;
+        }
+        .section-yellow h2,
+        .section-dark h2,
+        .faq-section h2 {
+          font-size: 28px !important;
+        }
+        .grid-card {
+          padding: 20px;
+        }
+        .grid-card .card-num {
+          font-size: 32px;
+        }
+        .grid-card .card-title {
+          font-size: 18px;
+        }
+        .testimonial img {
+          width: 100px;
+          height: 100px;
+        }
+        .testimonial h2 {
+          font-size: 24px;
+        }
+        .accordion-header {
+          font-size: 16px;
+          padding: 15px 20px;
+        }
+        .accordion-content p {
+          padding: 0 20px 15px;
+        }
+        .final-cta h2 {
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="container">
+      <div class="logo"><span></span>PAINT</div>
+      <div class="lang-selector">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1200px-Flag_of_the_United_Kingdom.svg.png"
+          alt="UK Flag"
+        />
+        <span>EN</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero container">
+        <p class="subtitle">RISUS PRAESENT VULPUTATE.</p>
+        <h1>Cursus Consequat Tristique.</h1>
+        <div class="hero-features">
+          <div class="feature-item">Cursus Integer</div>
+          <div class="feature-item">Integer Consequat</div>
+          <div class="feature-item">Tellus Euismod Pellentesque</div>
+          <div class="feature-item">Pellentesque Tempus</div>
+          <div class="feature-item">Mauris Fermentum Praesent</div>
+        </div>
+        <a href="#" class="btn btn-primary">Lorem Ipsum &rarr;</a>
+      </section>
+
+      <section class="container">
+        <div class="section-yellow split-section">
+          <div class="visual">
+            <img
+              src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="placeholder"
+              style="width: 100%; border-radius: 20px"
+            />
+          </div>
+          <div class="content">
+            <h2>
+              Phasellus a vitae iaculis magna eleifend pulvinar velit odio.
+            </h2>
+            <p>
+              Vulputate et vulputate suspendisse natoque! Euismod magna id purus
+              eget nunc ligula suspendisse dui netus. Condimentum blandit rutrum
+              at mauris enim pulvinar.
+            </p>
+            <a href="#" class="btn btn-dark">Lorem Ipsum &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container">
+        <div class="section-dark">
+          <div class="split-section">
+            <div class="content">
+              <p class="subtitle">
+                Quisque porttitor vitae vel amet neque scelerisque mattis.
+                Consectetur nibh velit magna consectetur leo.
+              </p>
+              <h2>Cursus Integer Conseq Aliquam Tristique.</h2>
+              <a href="#" class="btn btn-light" style="margin-top: 30px"
+                >Lorem Ipsum &rarr;</a
+              >
+            </div>
+            <div class="visual">
+              <div class="grid-4">
+                <div class="grid-card light">
+                  <div class="card-icon">JOIN US</div>
+                  <div class="card-num">1.</div>
+                  <div class="card-title">Phasellus Vitae</div>
+                  <div class="card-desc">Quisque Porttitor Vitae Vel Amet</div>
+                </div>
+                <div class="grid-card primary">
+                  <div class="card-icon">🏆</div>
+                  <div class="card-num">2.</div>
+                  <div class="card-title">Iaculis Magna</div>
+                  <div class="card-desc">
+                    Porttitor Neque Scelerisque Mattis
+                  </div>
+                </div>
+                <div class="grid-card primary">
+                  <div class="card-icon">🎨</div>
+                  <div class="card-num">3.</div>
+                  <div class="card-title">Eleifend Pulvinar</div>
+                  <div class="card-desc">Vitae Consectetur Nibh Velit</div>
+                </div>
+                <div class="grid-card light">
+                  <div class="card-icon">🧘</div>
+                  <div class="card-num">4.</div>
+                  <div class="card-title">Velit Odio Phir</div>
+                  <div class="card-desc">Ametneq Magna Consectetur Leo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container testimonial">
+        <!-- Placeholder for image -->
+        <img
+          src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+          alt="Customer photo"
+        />
+        <h2>What our customers thought?</h2>
+        <p>
+          Euismod magna id purus eget nunc ligula suspendisse dui netus.
+          Condimentum blandit rutrum at mauris enim pulvinar duis etiam duis.
+        </p>
+        <div class="author">Holly Davidson</div>
+        <div class="testimonial-nav">
+          <span>&larr;</span>
+          <span class="next">&rarr;</span>
+        </div>
+      </section>
+
+      <section class="container">
+        <div class="split-section">
+          <div class="visual" style="background: none; height: auto">
+            <img
+              src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="placeholder"
+              style="width: 100%; border-radius: 20px"
+            />
+          </div>
+          <div class="content">
+            <h2>Cursus Integer consequat Tristique.</h2>
+            <div class="hero-features" style="justify-content: center">
+              <div class="feature-item">
+                Ac viverra sed risus praesent vulputate.
+              </div>
+            </div>
+            <div class="hero-features" style="justify-content: center">
+              <div class="feature-item">Natoqu consectetur pulvinar.</div>
+            </div>
+            <div class="hero-features" style="justify-content: center">
+              <div class="feature-item">
+                Sollicitudin ornare tempus varius pulvinar.
+              </div>
+            </div>
+            <a href="#" class="btn btn-primary" style="margin-top: 20px"
+              >Lorem Ipsum &rarr;</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="section faq-section">
+        <h2>Phasellus a vitae iaculis magna.</h2>
+        <p class="subtitle">
+          Phasellus a vitae iaculis magna eleifend pulvinar velit odio.
+        </p>
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Quam vehicula faucibus amet lorem.</span>
+              <span class="accordion-icon">-</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                Euismod magna id purus eget nunc ligula suspendisse dui netus.
+                Condimentum blandit rutrum at mauris enim pulvinar duis etiam
+                duis. Mauris fermentum praesent tellus euismod.
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Pellentesque tempus sed phasellus vel.</span>
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content">
+              <p>Content for Pellentesque tempus.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span
+                >Mauris fermentum praesent tellus euismod pellentesque urna ac
+                massa in.</span
+              >
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content">
+              <p>Content for Mauris fermentum.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span
+                >Vulputate et vulputate suspendisse natoque id tellus
+                consectetur pulvinar et.</span
+              >
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content">
+              <p>Content for Vulputate et vulputate.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container">
+        <div class="final-cta">
+          <h2>Vulputate et pulvinar ethre Suspendisse tellus consecteur</h2>
+          <a href="#" class="btn btn-light">Lorem Ipsum &rarr;</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="container">
+      <div class="footer-links">
+        <div>Copyright &copy; 2022 Lorem Ipsum.</div>
+        <div>
+          <a href="#">Privacy Policy</a> | <a href="#">Terms and Conditions</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const accordionItems = document.querySelectorAll(".accordion-item");
+
+        // Open the first item by default
+        if (accordionItems.length > 0) {
+          const firstItem = accordionItems[0];
+          firstItem.classList.add("active");
+          firstItem.querySelector(".accordion-content").style.maxHeight =
+            firstItem.querySelector(".accordion-content").scrollHeight + "px";
+        }
+
+        accordionItems.forEach((item) => {
+          const header = item.querySelector(".accordion-header");
+          const content = item.querySelector(".accordion-content");
+          const icon = header.querySelector(".accordion-icon");
+
+          header.addEventListener("click", () => {
+            // Close other items
+            accordionItems.forEach((otherItem) => {
+              if (
+                otherItem !== item &&
+                otherItem.classList.contains("active")
+              ) {
+                otherItem.classList.remove("active");
+                otherItem.querySelector(".accordion-content").style.maxHeight =
+                  "0";
+                otherItem.querySelector(".accordion-icon").textContent = "+";
+              }
+            });
+
+            // Toggle current item
+            item.classList.toggle("active");
+            if (item.classList.contains("active")) {
+              content.style.maxHeight = content.scrollHeight + "px";
+              icon.textContent = "-";
+            } else {
+              content.style.maxHeight = "0";
+              icon.textContent = "+";
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
